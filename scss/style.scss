@@ -1,0 +1,307 @@
+html{
+  font-size: 100%;
+}
+img{
+  vertical-align: middle;
+  border-style: none;
+}
+body{
+  line-height: 1.7;
+  font-family: "Noto Sans JP",sans-serif;
+  font-feature-settings:"pkna";
+  font-size: 1rem;
+  margin:0;
+}
+// variable
+$color--brack:black;
+$color--white:white;
+$color--green:#2498b3;
+$color--skyblue:#d4f1f8;;
+
+// header
+.wrapper{
+  max-width:100%;
+  margin:0 auto;
+}
+.header-Top{
+  height: 70px;
+  width:100%;
+  display: -webkit-box;
+  display: flex;
+  z-index: 1100;
+  justify-content: space-between;
+  position: fixed;
+  top:0;
+  left:0;
+  background-color:$color--white;
+}
+.header-logo{
+  height: 33px;
+  width:auto;
+}
+.header-Top-text{
+  min-width: 0%;
+  width: 0%;
+  letter-spacing: 0px;
+  margin-left:16px;
+  color:$color--brack;            /* 文字色を黒 */
+  background-color:$color--white;  /* 背景色を白 */
+  line-height: 1.3;
+  font-weight: 900;
+  font-size:14px;
+}
+.header-title {
+  p{
+    margin: 0 0 0 21px;     /* ロゴの左に余白 */
+    width:160px;            /* 幅を指定 */
+    margin-top:0px;         /* header上の余白を0にする */
+    margin-bottom:0px;      /* header下の余白を0にする */
+  }
+  a{
+    height: 70px;
+    width: 160px;  
+    display: flex;
+    align-items: center;  
+    text-decoration: none;
+  }
+  span{
+    white-space: nowrap;
+    margin-left:16px;  
+}
+  strong{
+    font-size: 18px;
+    font-weight: bolder;
+    margin:0;
+  }
+}
+//nav
+.header-nav{
+  display: flex;         /* navを横並びに指定する */
+  align-items: center;   /* 中央揃え */
+  padding:0 15px;
+  height: 70px;          /* header欄の高さの指定 */
+  width:auto;            /* 幅を自動で指定 */
+  color:$color--brack;         /* 文字色を黒 */
+  list-style-type: none;  /* リストの点を非表示 */
+  margin-top:0px;         /* header上の余白を0にする */
+  margin-bottom:0px;      /* header下の余白を0にする */
+  padding-right: 0px;     /* header右側の余白を0にする */
+}
+// nav部分の下線を非表示 
+.nav-body {
+  display: flex;
+  height: 70px;             /* header欄の高さの指定 */
+  width:auto;               /* 幅を自動で指定 */
+  text-decoration: none;    /* 線を非表示 */
+  align-items: center;      /* 中央揃え */
+  color:$color--brack;            /* 文字色を黒 */
+  background-color:$color--white;  /* 背景色を白 */
+  line-height: 1.3;
+  font-weight: 700;
+  a{
+    display: flex;
+    background-color:$color--white;
+    padding:0px 15px;
+  }
+}
+// link部分のリストと表示を非表示にする 
+.nav-link{
+  display:block;
+  display: flex;
+  list-style-type: none;
+  text-align: center;
+  display:none;
+  line-height: 1.3;
+  font-weight: 900;
+}
+.nav-link-a{
+  display:block;
+  display: flex;
+  list-style-type: none;
+  text-align: center;
+  display:none;
+  line-height: 1.3;
+  font-weight: 900;
+}
+// 受講お申し込みの背景と文字の変更 
+.nav-body-sp {
+  a{
+    display: flex;                      /* navを横並びに指定する */
+    height: 70px;                       /* header欄の高さの指定 */
+    width:auto;                         /* 幅を自動で指定 */
+    align-items: center;                /* 中央揃え */
+    color:$color--white;                /* 文字色を白 */
+    background-color: $color--green;    /* 背景色をターコイズ */
+    line-height: 1.3;
+    font-weight: 900;
+    padding:0px 15px;
+  }
+}
+
+//main要素
+.main{
+  padding-top:70px;
+}
+
+//Top
+.Top-Head{
+  position: relative;
+  height: 650px;
+  overflow: hidden;
+  background-image:url("..//images/bg-hero3.png");
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+}
+.Top-Head-layer1{
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+}
+.Top-Head-layer2{
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-image:url("../images/bg-hero2.png") ;
+  background-size: cover;
+  background-size: auto;
+  background-position: center center;
+  background-repeat: no-repeat;
+  z-index: 100;
+}
+.Top-Head-layer{
+  display:flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 80px;
+  background-image:url("../images/bg-hero1.png") ;
+  background-size: auto;
+  background-position: center center;
+  background-repeat: no-repeat;
+  z-index: 200;
+  box-sizing: border-box;
+}
+
+.Top-body{
+  max-width: 530px;
+  border-radius: 10px;
+  padding: 43px 40px 19px;
+  text-align: center;
+  background: $color--white;
+  h1{
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+  }
+  img{
+    width:280px;
+    height: auto;
+  }
+  p{
+    margin: 1.3em 0 .5em;
+    font-weight: 700;
+    letter-spacing: 0;
+  }
+  a{
+    padding: 24px 37px;
+    font-size: 18px;
+    background: $color--green;
+    color:$color--white;                /* 文字色を白 */
+    display: block;
+    text-decoration: none;
+    border-radius: 4px;
+    border: solid 1px $color--green;
+  }
+}
+.Top-body-click{
+  margin: 0 10px 1em 5px;
+  display: inline-block;
+  line-height: 1;
+}
+
+
+
+
+
+
+
+
+.background-black{
+  background:$color--brack;
+  padding:64px 0px;
+  z-index:500;
+}
+.matome{
+  position: relative;
+  display: flex;
+  color:$color--white;
+  margin-top:-263px;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.title-box{
+  margin:0 50px;
+  width:229px;
+}
+.icon-box{
+  text-align: center;
+  p{
+    margin:0.2em 0 0;
+    font-weight:700;
+    font-size:24px;
+    box-sizing: border-box;
+  }
+  .circle{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 230px;
+    height: 230px;
+    border-radius: 50%;
+    color:$color--brack;
+    background:$color--white ;
+    border:solid 6px $color--brack;
+    margin:0 -1px 0 0;
+    i{
+      text-align: center;
+      line-height:230px ;
+      font-size: 100px;
+    }
+  }
+}
+
+.discription-box{
+  margin: .5em 0 0;
+  line-height: 1.7;
+  font-weight: 700;
+}
+
+
+  .yohaku{
+    background-color: $color--skyblue;
+  }
+// .background-black{
+// }
+
+//背景画像
+  // ,url("images/bg-hero2.png"),
+
+/* レスポンシブ
+@media(min-width: 0px) and (max-width: 767px){
+  
+}
+@media(min-width: 767px){
+
+}
+@media(min-width: 1200px){
+
+}
+@media(min-width: 1260px) {
+
+}
+@media(min-width: 1280px){
+
+} */
