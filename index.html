@@ -10,7 +10,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/44a39411cf.js" crossorigin="anonymous"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
   </head>
   <body>
     <!-- ヘッダーの設定 -->
@@ -27,10 +26,15 @@
           </a>
         </p>
       </div>
-      <nav class="nav">
+
+      <button class="nav-button p-menu-bt js-humburger">
+        <span>navボタン</span>
+      </button>
+      
+      <nav class="nav">        
         <ul class="header-nav">
-          <li class="nav-body"><a href="http://176.34.11.254/about-raisetech" class="nav-body">はじめての方へ</a>
-            <ul class="nav-link-a">
+          <li class="nav-body"><a href="http://176.34.11.254/about-raisetech"class="nav-body">はじめての方へ</a>
+            <ul class="nav-link">
               <li><a href="http://176.34.11.254/about-raisetech">マンガでわかるRaiseTech</a></li>
               <li><a href="http://176.34.11.254/support">サポート体制</a></li>
               <li><a href="http://176.34.11.254/trial-program">トライアル受講</a></li>
@@ -98,7 +102,7 @@
         
         <!-- 画面下、黒のボックスと説明を設定 -->
         <div class="background-black">  <!-- 背景を黒、大ボックスを作成 -->
-          <div class="#">               <!-- ボックスを中央に揃える -->
+          <div class="wrap wrap-wide">               <!-- ボックスを中央に揃える -->
             <div class="matome">                       <!-- 紹介項目をまとめるボックス -->
 
               <div class="title-box">       <!-- 紹介項目1のボックス-->
@@ -156,6 +160,7 @@
         </div>
       </article>
     </main>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="index.js"></script>
   </body>
 </html>

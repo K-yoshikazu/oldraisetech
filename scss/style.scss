@@ -1,5 +1,5 @@
 html{
-  font-size: 100%;
+  font-size: 62.5%;
 }
 img{
   vertical-align: middle;
@@ -9,24 +9,26 @@ body{
   line-height: 1.7;
   font-family: "Noto Sans JP",sans-serif;
   font-feature-settings:"pkna";
-  font-size: 1rem;
+  font-size: 1.6rem;
   margin:0;
 }
 // variable
 $color--brack:black;
 $color--white:white;
-$color--green:#2498b3;
-$color--skyblue:#d4f1f8;;
+$color--green:#2498b3;//ボタンの背景色
+$color--skyblue:rgb(229, 244, 247);//ドロップダウンメニューの背景色、余白
+$color--blue:rgb(212, 237, 245);//リストにカーソルを合わせているときの色(ul)
+$color--emerald:rgb(75,150,176);//リスト内の文字色が反転したときの色(li)
 
 // header
 .wrapper{
   max-width:100%;
   margin:0 auto;
 }
+//headerの範囲の定義と設定
 .header-Top{
   height: 70px;
   width:100%;
-  display: -webkit-box;
   display: flex;
   z-index: 1100;
   justify-content: space-between;
@@ -35,6 +37,8 @@ $color--skyblue:#d4f1f8;;
   left:0;
   background-color:$color--white;
 }
+
+//-----header左上部分の定義-----
 .header-logo{
   height: 33px;
   width:auto;
@@ -69,13 +73,14 @@ $color--skyblue:#d4f1f8;;
     margin-left:16px;  
 }
   strong{
-    font-size: 18px;
+    font-size: 1.8rem;
     font-weight: bolder;
     margin:0;
   }
 }
-//nav
-.header-nav{
+//-----header左上部分の定義ここまで-----
+//-----header右上の部分の定義(nav)-----
+.header-nav {
   display: flex;         /* navを横並びに指定する */
   align-items: center;   /* 中央揃え */
   padding:0 15px;
@@ -86,10 +91,14 @@ $color--skyblue:#d4f1f8;;
   margin-top:0px;         /* header上の余白を0にする */
   margin-bottom:0px;      /* header下の余白を0にする */
   padding-right: 0px;     /* header右側の余白を0にする */
+  ul li a{
+    padding:15px 60px 15px 15px;
+  }
 }
+
 // nav部分の下線を非表示 
-.nav-body {
-  display: flex;
+.nav-body {              
+  position: relative;
   height: 70px;             /* header欄の高さの指定 */
   width:auto;               /* 幅を自動で指定 */
   text-decoration: none;    /* 線を非表示 */
@@ -103,26 +112,46 @@ $color--skyblue:#d4f1f8;;
     background-color:$color--white;
     padding:0px 15px;
   }
+  :hover{
+    background:$color--blue;
+    transition: 0.2s;
+  }
 }
-// link部分のリストと表示を非表示にする 
+// link部分のリストの設定
 .nav-link{
   display:block;
-  display: flex;
+  margin: 0; 
+  padding: 0; 
   list-style-type: none;
-  text-align: center;
-  display:none;
   line-height: 1.3;
-  font-weight: 900;
+  font-weight: 400;
+  font-size: 1.6rem;
+
+  //マウスが置かれたときにドロップダウンメニューを表示
+  position: absolute;
+  top:70px;
+  left:0;
+  z-index: 1100;
+  li{
+    a{
+      white-space: nowrap;
+      display: block;  
+      height: auto;
+      background-color:$color--skyblue;
+      padding: 0px 15px;
+      text-decoration: none;
+      color:$color--brack;
+      line-height: 1.7;  
+    }
+    :hover{
+      color:$color--emerald;
+      background:$color--white;
+      transition: 0.1s;
+    }
+  }
+  display: none;
 }
-.nav-link-a{
-  display:block;
-  display: flex;
-  list-style-type: none;
-  text-align: center;
-  display:none;
-  line-height: 1.3;
-  font-weight: 900;
-}
+
 // 受講お申し込みの背景と文字の変更 
 .nav-body-sp {
   a{
@@ -133,17 +162,74 @@ $color--skyblue:#d4f1f8;;
     color:$color--white;                /* 文字色を白 */
     background-color: $color--green;    /* 背景色をターコイズ */
     line-height: 1.3;
-    font-weight: 900;
     padding:0px 15px;
   }
 }
 
-//main要素
+//ハンバーガーメニューの設定
+$btnWidth: 23px;
+$btnHeight: 2px;
+
+.nav-button{
+  width: 50px;
+  height: 50px;
+  position: relative;
+  @media screen and (min-width: 1200px){
+    display: none;
+  }
+  &::before,
+	&::after {
+		content   : "";
+		width     : $btnWidth;
+		height    : $btnHeight;
+		background: $color--green;
+		position  : absolute;
+		left      : calc( 50% - (11.5px));
+		display   : block;
+		transition: transform 0.2s;
+    }
+    &::before {
+      top: 15px;
+    }
+    &::after {
+      top: 30px;
+    }
+    > span {
+      width     : $btnWidth;
+      height    : $btnHeight;
+      font-size      : 0;
+      background-size: auto $btnHeight;
+      position       : absolute;
+      left           : calc( 50% - ( 11.5px ) );
+      top            : 50%;
+      transition     : transform 0.2s;
+    }
+    &.is-open {
+      &::before {
+        transform: rotate( 45deg );
+        top      : 25px;
+      }
+      &::after {
+        transform: rotate( -45deg );
+        top      : 25px;
+      }
+      > span {
+        background: none;
+      }
+    }
+}
+body.is-open {
+	position: fixed;
+}
+
+
+//-----header右上の部分の定義(nav)ここまで-----
+//main要素の範囲設定
 .main{
   padding-top:70px;
 }
 
-//Top
+//-----中心のtextboxの定義-----
 .Top-Head{
   position: relative;
   height: 650px;
@@ -221,18 +307,15 @@ $color--skyblue:#d4f1f8;;
   line-height: 1;
 }
 
-
-
-
-
-
-
+//-----中心のtextboxの定義ここまで-----
+//-----下部の丸イメージ要素とテキストの定義-----
 
 .background-black{
   background:$color--brack;
   padding:64px 0px;
   z-index:500;
 }
+
 .matome{
   position: relative;
   display: flex;
@@ -278,30 +361,117 @@ $color--skyblue:#d4f1f8;;
   line-height: 1.7;
   font-weight: 700;
 }
+//-----下部の丸イメージ要素とテキストの定義ここまで-----
+//-----以下余白の定義-----
+.yohaku{
+  background-color: $color--skyblue;
+}
 
+// レスポンシブ 
+//  mixinで書いてincludeで呼び出す→こにさん
 
-  .yohaku{
-    background-color: $color--skyblue;
+//スマホ優位
+@media screen and (max-width: 767px){
+  .Top-Head{
+    height: 0px;
+    padding-bottom: 320px;
+    background-position: center -25px;
   }
-// .background-black{
-// }
+  .Top-Head-layer{
+    background-size: cover;
+    align-items: flex-end;
+    background-position: center -30px;
+  }
+  .Top-Head-layer2{
+    background-size: cover;
+    background-position: center -25px;
+  }
+  .Top-body{
+    width: 100%;
+    max-width: 100%;
+    padding: 9px 0 13px;
+    border-radius: 0;
+  } 
+  .matome{
+    margin-top: 0;
+    flex-direction: column;
+    align-items: center;
+  }
+  .title-box{
+    margin: 0;
+    margin-bottom: 2.5em;
+    width: auto;
 
-//背景画像
-  // ,url("images/bg-hero2.png"),
+  }
 
-/* レスポンシブ
-@media(min-width: 0px) and (max-width: 767px){
-  
+  .wrap{
+    margin: 0 10px;
+  }
+  .Top-body{
+    img{
+      display: none;
+    }
+    p{
+      margin: .5em 0;
+      font-size: 1.3rem;
+    }
+  }
+  .Top-body-click{
+    a{
+      padding: 12px 18px;
+      font-size: 1.6rem;
+    }
+  }
 }
-@media(min-width: 767px){
 
+@media screen and (min-width: 768px) and (max-width: 1078px){
+  .wrap{
+    margin: 0 10px;
+  }
+  .title-box{
+    width: 29.33%;
+    margin: 0 2%;
+  }
 }
-@media(min-width: 1200px){
 
+@media screen and (max-width: 1200px){
+  .header-Top{
+    height: 50px;
+  }
+  .header-title {
+    p{
+      margin: 10px;
+      height: 30px;
+    }
+    p a{
+      height: 30px;
+    }
+    p a img{
+    height: 30px;
+    }
+  }
+  .header-nav li{
+    display: none;
+  }
+  .main{
+    padding-top:50px;
+  }
 }
-@media(min-width: 1260px) {
 
+@media screen and (max-width: 1260px) {
+  .nav-body a{
+    padding:0px 10px;
+  }   
 }
-@media(min-width: 1280px){
 
-} */
+@media screen and (max-width: 1280px){
+    .header-Top-text{
+    display: none;
+  }
+}
+
+@media screen and (min-width: 1280px){
+  main{
+    color: red;//可変がわかるように仮入れ
+  }
+}
