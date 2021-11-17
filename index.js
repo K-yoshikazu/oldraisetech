@@ -8,7 +8,7 @@ $('.nav-body').hover(function() {
 
 jQuery( function( $ ) {
 	$( ".js-humburger" ).on( "click", function() {
-		$( this ).toggleClass( "is-open" );
+    $( this ).toggleClass( "is-open" );
 		$( ".header-nav" ).toggleClass( "is-open" );
 		$( "body" ).toggleClass( "is-open" );
 	} );

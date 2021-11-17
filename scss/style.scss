@@ -11,6 +11,10 @@ body{
   font-feature-settings:"pkna";
   font-size: 1.6rem;
   margin:0;
+  // overflow-y:hidden;
+}
+button{
+  padding: 0;
 }
 // variable
 $color--brack:black;
@@ -167,38 +171,46 @@ $color--emerald:rgb(75,150,176);//リスト内の文字色が反転したとき�
 }
 
 //ハンバーガーメニューの設定
+//ボタンの定義
 $btnWidth: 23px;
 $btnHeight: 2px;
 
 .nav-button{
+  background: $color--white;
+  border: none;
   width: 50px;
   height: 50px;
   position: relative;
+  transition: 0.3s;
   @media screen and (min-width: 1200px){
     display: none;
   }
+  &.is-open{
+    background: $color--green;
+  }
   &::before,
-	&::after {
-		content   : "";
-		width     : $btnWidth;
-		height    : $btnHeight;
-		background: $color--green;
-		position  : absolute;
-		left      : calc( 50% - (11.5px));
-		display   : block;
-		transition: transform 0.2s;
+  &::after {
+    content   : "";
+    width     : $btnWidth;
+    height    : $btnHeight;
+    background: $color--green;
+    position  : absolute;
+    left      : calc( 50% - (11.5px));
+    display   : block;
+    transition: transform 0.2s;
     }
     &::before {
-      top: 15px;
+      top: 16px;
     }
     &::after {
-      top: 30px;
+      top: 34px;
     }
     > span {
       width     : $btnWidth;
       height    : $btnHeight;
       font-size      : 0;
       background-size: auto $btnHeight;
+      background: $color--green;
       position       : absolute;
       left           : calc( 50% - ( 11.5px ) );
       top            : 50%;
@@ -208,10 +220,12 @@ $btnHeight: 2px;
       &::before {
         transform: rotate( 45deg );
         top      : 25px;
+        background: $color--white;
       }
       &::after {
         transform: rotate( -45deg );
         top      : 25px;
+        background: $color--white;
       }
       > span {
         background: none;
@@ -219,9 +233,8 @@ $btnHeight: 2px;
     }
 }
 body.is-open {
-	position: fixed;
+  position: fixed;
 }
-
 
 //-----header右上の部分の定義(nav)ここまで-----
 //main要素の範囲設定
@@ -392,22 +405,8 @@ body.is-open {
     padding: 9px 0 13px;
     border-radius: 0;
   } 
-  .matome{
-    margin-top: 0;
-    flex-direction: column;
-    align-items: center;
-  }
-  .title-box{
-    margin: 0;
-    margin-bottom: 2.5em;
-    width: auto;
-
-  }
-
-  .wrap{
-    margin: 0 10px;
-  }
   .Top-body{
+    // transition: all 300ms 0s ease;    
     img{
       display: none;
     }
@@ -421,6 +420,19 @@ body.is-open {
       padding: 12px 18px;
       font-size: 1.6rem;
     }
+  }
+  .matome{
+    margin-top: 0;
+    flex-direction: column;
+    align-items: center;
+  }
+  .title-box{
+    margin: 0;
+    margin-bottom: 2.5em;
+    width: auto;
+  }
+  .wrap{
+    margin: 0 10px;
   }
 }
 
@@ -450,8 +462,27 @@ body.is-open {
     height: 30px;
     }
   }
-  .header-nav li{
-    display: none;
+  .header-nav {
+    li{
+      display: none;
+    }
+    .is-open{
+      height: 50px;
+      position: relative;
+      ul{
+        transition: all 300ms 0s ease;
+        width: 100vw;
+        height: 100%;
+        padding: 70px 50px;
+        position: fixed;
+        flex-direction: column;
+        align-items: center;
+        z-index: 100;
+        overflow-y: auto;
+        left: 100%;
+
+      }
+    }
   }
   .main{
     padding-top:50px;

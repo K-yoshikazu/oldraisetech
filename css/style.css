@@ -17,6 +17,10 @@ body {
   margin: 0;
 }
 
+button {
+  padding: 0;
+}
+
 .wrapper {
   max-width: 100%;
   margin: 0 auto;
@@ -202,14 +206,21 @@ body {
 }
 
 .nav-button {
+  background: white;
+  border: none;
   width: 50px;
   height: 50px;
   position: relative;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
 }
 @media screen and (min-width: 1200px) {
   .nav-button {
     display: none;
   }
+}
+.nav-button.is-open {
+  background: #2498b3;
 }
 .nav-button::before, .nav-button::after {
   content: "";
@@ -225,16 +236,17 @@ body {
   transition: transform 0.2s, -webkit-transform 0.2s;
 }
 .nav-button::before {
-  top: 15px;
+  top: 16px;
 }
 .nav-button::after {
-  top: 30px;
+  top: 34px;
 }
 .nav-button > span {
   width: 23px;
   height: 2px;
   font-size: 0;
   background-size: auto 2px;
+  background: #2498b3;
   position: absolute;
   left: calc( 50% - ( 11.5px ) );
   top: 50%;
@@ -247,11 +259,13 @@ body {
   -webkit-transform: rotate(45deg);
           transform: rotate(45deg);
   top: 25px;
+  background: white;
 }
 .nav-button.is-open::after {
   -webkit-transform: rotate(-45deg);
           transform: rotate(-45deg);
   top: 25px;
+  background: white;
 }
 .nav-button.is-open > span {
   background: none;
@@ -449,6 +463,19 @@ body.is-open {
     border-radius: 0;
   }
 
+  .Top-body img {
+    display: none;
+  }
+  .Top-body p {
+    margin: 0.5em 0;
+    font-size: 1.3rem;
+  }
+
+  .Top-body-click a {
+    padding: 12px 18px;
+    font-size: 1.6rem;
+  }
+
   .matome {
     margin-top: 0;
     -webkit-box-orient: vertical;
@@ -468,19 +495,6 @@ body.is-open {
 
   .wrap {
     margin: 0 10px;
-  }
-
-  .Top-body img {
-    display: none;
-  }
-  .Top-body p {
-    margin: 0.5em 0;
-    font-size: 1.3rem;
-  }
-
-  .Top-body-click a {
-    padding: 12px 18px;
-    font-size: 1.6rem;
   }
 }
 @media screen and (min-width: 768px) and (max-width: 1078px) {
@@ -511,6 +525,28 @@ body.is-open {
 
   .header-nav li {
     display: none;
+  }
+  .header-nav .is-open {
+    height: 50px;
+    position: relative;
+  }
+  .header-nav .is-open ul {
+    -webkit-transition: all 300ms 0s ease;
+    transition: all 300ms 0s ease;
+    width: 100vw;
+    height: 100;
+    padding: 70px 50px;
+    position: fixed;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    z-index: 100;
+    overflow-y: auto;
+    left: 100%;
   }
 
   .main {
