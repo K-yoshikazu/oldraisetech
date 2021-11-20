@@ -379,7 +379,7 @@ button {
   z-index: 500;
 }
 
-.matome {
+.black-box {
   position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -431,7 +431,7 @@ button {
   font-size: 100px;
 }
 
-.discription-box {
+.description-box {
   margin: 0.5em 0 0;
   line-height: 1.7;
   font-weight: 700;
@@ -483,7 +483,7 @@ button {
     font-size: 1.6rem;
   }
 
-  .matome {
+  .black-box {
     margin-top: 0;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -535,8 +535,11 @@ button {
   }
 
   .nav {
-    height: 50px;
-    position: relative;
+    position: absolute;
+    -webkit-transition: 0.2s;
+    transition: 0.2s;
+    top: -700%;
+    width: 100vw;
   }
   .nav ul li a {
     height: 27px;
@@ -551,7 +554,7 @@ button {
     width: 100vw;
     height: auto;
     padding: 0;
-    position: fixed;
+    position: absolute;
     top: 50px;
     background: rgba(44, 184, 216, 0.9);
     display: -webkit-box;
@@ -564,7 +567,6 @@ button {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
-    z-index: 1000;
     overflow-y: auto;
     left: 0%;
   }
@@ -573,6 +575,10 @@ button {
     display: block;
     width: 100%;
     height: auto;
+  }
+
+  .is-open {
+    top: 0%;
   }
 
   .nav-cross {

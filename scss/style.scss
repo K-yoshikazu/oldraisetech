@@ -331,7 +331,7 @@ $btnHeight: 2px;
   z-index:500;
 }
 
-.matome{
+.black-box{
   position: relative;
   display: flex;
   color:$color--white;
@@ -371,7 +371,7 @@ $btnHeight: 2px;
   }
 }
 
-.discription-box{
+.description-box{
   margin: .5em 0 0;
   line-height: 1.7;
   font-weight: 700;
@@ -383,8 +383,6 @@ $btnHeight: 2px;
 }
 
 // レスポンシブ 
-//  mixinで書いてincludeで呼び出す→こにさん
-
 //スマホ優位
 @media screen and (max-width: 767px){
   .Top-Head{
@@ -423,7 +421,7 @@ $btnHeight: 2px;
       font-size: 1.6rem;
     }
   }
-  .matome{
+  .black-box{
     margin-top: 0;
     flex-direction: column;
     align-items: center;
@@ -449,7 +447,6 @@ $btnHeight: 2px;
 }
 
 @media screen and (max-width: 1200px){
-  
   .header-Top{
     height: 50px;
   }
@@ -472,8 +469,10 @@ $btnHeight: 2px;
   }
     
   .nav{
-    height: 50px;
-    position: relative;
+    position: absolute;
+    transition: 0.2s;
+    top:-700%;
+    width: 100vw;
     ul li a{
       height: 27px;
       padding: 10px;
@@ -486,22 +485,24 @@ $btnHeight: 2px;
     width         : 100vw;
     height        : auto;
     padding       : 0;
-    position      : fixed;
+    position      : absolute; 
     top           : 50px;
     background    : rgba( 44, 184, 216, .9 );
     display       : flex;
     flex-direction: column;
     align-items   : center;
-    z-index       : 1000;
     overflow-y    : auto;
     left: 0%;
     }
     li{
-    position: relative;
-    display: block;
-    width: 100%;
-    height:auto;
+      position: relative;
+      display: block;
+      width: 100%;
+      height:auto;
     }
+  }
+  .is-open{
+    top:0%;
   }
   $crossWidth: 24px;
   $crossHeight: 2px;
@@ -582,7 +583,7 @@ $btnHeight: 2px;
 @media screen and (max-width: 1260px) {
   .nav-body a{
     padding:0px 10px;
-  }   
+  }
 }
 
 @media screen and (max-width: 1280px){

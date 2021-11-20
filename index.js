@@ -6,18 +6,19 @@
   }
 );
 
+//ハンバーガメニューの設定
 jQuery( function( $ ) {
   $( ".js-humburger" ).on( "click", function() {
     $( this ).toggleClass( "is-open" );
-  $( ".header-nav" ).toggleClass( "is-open" );
   $( ".nav" ).toggleClass( "is-open" );
   } );
 } );
 
+//ドロップダウンメニューの挙動
 jQuery( function( $ ) {
   $( ".nav-cross" ).hover( function() {
     $( this ).toggleClass( "open" );
-    $( ".nav-link" ).toggleClass( "open" );
+    // $( ".nav-link" ).toggleClass( "open" );
   } );
 } );
 jQuery( function( $ ) {
@@ -26,6 +27,8 @@ jQuery( function( $ ) {
     } );
 } );
 
+//画面はばが変わるとis-openを外す
+//アニメーション中に他のアニメーションをしない
 
 //戦いの記録
 // // let two;
