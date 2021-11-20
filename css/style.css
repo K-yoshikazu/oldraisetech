@@ -1,4 +1,3 @@
-@charset "UTF-8";
 html {
   font-size: 62.5%;
 }
@@ -131,6 +130,11 @@ button {
   -webkit-transition: 0.2s;
   transition: 0.2s;
 }
+@media screen and (max-width: 1200px) {
+  .nav-body :hover {
+    background: #e5f4f7;
+  }
+}
 
 .nav-link {
   display: block;
@@ -167,19 +171,13 @@ button {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  /* navを横並びに指定する */
   height: 70px;
-  /* header欄の高さの指定 */
   width: auto;
-  /* 幅を自動で指定 */
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  /* 中央揃え */
   color: white;
-  /* 文字色を白 */
   background-color: #2498b3;
-  /* 背景色をターコイズ */
   line-height: 1.3;
   padding: 0px 15px;
 }

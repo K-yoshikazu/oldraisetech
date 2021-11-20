@@ -118,6 +118,9 @@ $color--emerald:rgb(75,150,176);      //リスト内の文字色が反転した�
   :hover{
     background:$color--blue;
     transition: 0.2s;
+      @media screen and (max-width: 1200px){
+      background:$color--skyblue;
+    }
   }
 }
 // link部分のリストの設定
@@ -158,12 +161,12 @@ $color--emerald:rgb(75,150,176);      //リスト内の文字色が反転した�
 // 受講お申し込みの背景と文字の変更 
 .nav-body-sp {
   a{
-    display: flex;                      /* navを横並びに指定する */
-    height: 70px;                       /* header欄の高さの指定 */
-    width:auto;                         /* 幅を自動で指定 */
-    align-items: center;                /* 中央揃え */
-    color:$color--white;                /* 文字色を白 */
-    background-color: $color--green;    /* 背景色をターコイズ */
+    display: flex;                     
+    height: 70px;                      
+    width:auto;                        
+    align-items: center;               
+    color:$color--white;               
+    background-color: $color--green;   
     line-height: 1.3;
     padding:0px 15px;
     @media screen and (max-width: 1200px){
@@ -513,7 +516,6 @@ $btnHeight: 2px;
         content: "";
         position: absolute;
         display: block;
-        // top:50%;
         background: $color--brack;
         margin-top: -1px;
         }
@@ -533,7 +535,6 @@ $btnHeight: 2px;
         content: "";
         position: absolute;
         display: block;
-        // top:50%;
         background: $color--brack;
         margin-top: -1px;
         }
