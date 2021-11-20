@@ -549,8 +549,6 @@ button {
     padding: 10px 10px 10px 25px;
   }
   .nav .header-nav {
-    -webkit-transition: 0.2s;
-    transition: 0.2s;
     width: 100vw;
     height: auto;
     padding: 0;
@@ -652,11 +650,6 @@ button {
 @media screen and (max-width: 1280px) {
   .header-Top-text {
     display: none;
-  }
-}
-@media screen and (min-width: 1280px) {
-  main {
-    color: red;
   }
 }
 /*# sourceMappingURL=style.css.map */
