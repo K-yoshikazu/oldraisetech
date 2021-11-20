@@ -204,6 +204,11 @@ button {
   line-height: 1.3;
   padding: 0px 15px;
 }
+@media screen and (max-width: 1200px) {
+  .nav-body-sp a {
+    display: none;
+  }
+}
 
 .nav-button {
   background: white;
@@ -269,10 +274,6 @@ button {
 }
 .nav-button.is-open > span {
   background: none;
-}
-
-body.is-open {
-  position: fixed;
 }
 
 .main {
@@ -366,6 +367,10 @@ body.is-open {
   margin: 0 10px 1em 5px;
   display: inline-block;
   line-height: 1;
+}
+.Top-body-click a {
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
 }
 
 .background-black {
@@ -472,6 +477,8 @@ body.is-open {
   }
 
   .Top-body-click a {
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
     padding: 12px 18px;
     font-size: 1.6rem;
   }
@@ -526,17 +533,30 @@ body.is-open {
   .header-nav li {
     display: none;
   }
-  .header-nav .is-open {
+
+  .nav {
     height: 50px;
     position: relative;
   }
-  .header-nav .is-open ul {
-    -webkit-transition: all 300ms 0s ease;
-    transition: all 300ms 0s ease;
+  .nav ul li a {
+    height: 27px;
+    padding: 10px;
+  }
+  .nav ul li ul li a {
+    padding: 10px 10px 10px 25px;
+  }
+  .nav .header-nav {
+    -webkit-transition: 0.2s;
+    transition: 0.2s;
     width: 100vw;
-    height: 100;
-    padding: 70px 50px;
+    height: auto;
+    padding: 0;
     position: fixed;
+    top: 50px;
+    background: rgba(44, 184, 216, 0.9);
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
@@ -544,13 +564,78 @@ body.is-open {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
-    z-index: 100;
+    z-index: 1000;
     overflow-y: auto;
-    left: 100%;
+    left: 0%;
+  }
+  .nav li {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .nav-cross {
+    padding: 10px;
+  }
+  .nav-cross::before, .nav-cross::after {
+    content: "";
+    position: absolute;
+    display: block;
+    background: black;
+    margin-top: -1px;
+  }
+  .nav-cross::before {
+    width: 24px;
+    height: 2px;
+    right: 13px;
+  }
+  .nav-cross::after {
+    width: 2px;
+    height: 24px;
+    right: 24px;
+  }
+  .nav-cross.open::before, .nav-cross.open::after {
+    content: "";
+    position: absolute;
+    display: block;
+    background: black;
+    margin-top: -1px;
+  }
+  .nav-cross.open::before {
+    width: 24px;
+    height: 2px;
+    right: 13px;
+    z-index: 10;
+  }
+  .nav-cross.open::after {
+    display: block;
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 50px;
+    height: auto;
+    margin-top: 0;
+    background-color: #f7f7f7;
+    z-index: 9;
+  }
+
+  .nav-link li a {
+    background: white;
+  }
+  .nav-link li :hover {
+    color: black;
+    background: #e5f4f7;
   }
 
   .main {
     padding-top: 50px;
+  }
+
+  .nav-body ul {
+    position: static;
   }
 }
 @media screen and (max-width: 1260px) {

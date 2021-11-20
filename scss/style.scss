@@ -167,6 +167,9 @@ $color--emerald:rgb(75,150,176);//リスト内の文字色が反転したとき�
     background-color: $color--green;    /* 背景色をターコイズ */
     line-height: 1.3;
     padding:0px 15px;
+    @media screen and (max-width: 1200px){
+      display: none;
+    }
   }
 }
 
@@ -232,10 +235,6 @@ $btnHeight: 2px;
       }
     }
 }
-body.is-open {
-  position: fixed;
-}
-
 //-----header右上の部分の定義(nav)ここまで-----
 //main要素の範囲設定
 .main{
@@ -318,6 +317,9 @@ body.is-open {
   margin: 0 10px 1em 5px;
   display: inline-block;
   line-height: 1;
+  a{
+    transition: .5s;
+  }
 }
 
 //-----中心のtextboxの定義ここまで-----
@@ -405,8 +407,7 @@ body.is-open {
     padding: 9px 0 13px;
     border-radius: 0;
   } 
-  .Top-body{
-    // transition: all 300ms 0s ease;    
+  .Top-body{    
     img{
       display: none;
     }
@@ -417,6 +418,7 @@ body.is-open {
   }
   .Top-body-click{
     a{
+      transition: .5s;
       padding: 12px 18px;
       font-size: 1.6rem;
     }
@@ -433,7 +435,7 @@ body.is-open {
   }
   .wrap{
     margin: 0 10px;
-  }
+  }  
 }
 
 @media screen and (min-width: 768px) and (max-width: 1078px){
@@ -447,6 +449,7 @@ body.is-open {
 }
 
 @media screen and (max-width: 1200px){
+  
   .header-Top{
     height: 50px;
   }
@@ -466,28 +469,115 @@ body.is-open {
     li{
       display: none;
     }
-    .is-open{
-      height: 50px;
-      position: relative;
-      ul{
-        transition: all 300ms 0s ease;
-        width: 100vw;
-        height: 100%;
-        padding: 70px 50px;
-        position: fixed;
-        flex-direction: column;
-        align-items: center;
-        z-index: 100;
-        overflow-y: auto;
-        left: 100%;
-
+  }
+    
+  .nav{
+    height: 50px;
+    position: relative;
+    ul li a{
+      height: 27px;
+      padding: 10px;
+    }
+    ul li ul li a{
+      padding:10px 10px 10px 25px;
+    }
+  .header-nav{
+    transition: 0.2s;
+    width         : 100vw;
+    height        : auto;
+    padding       : 0;
+    position      : fixed;
+    top           : 50px;
+    background    : rgba( 44, 184, 216, .9 );
+    display       : flex;
+    flex-direction: column;
+    align-items   : center;
+    z-index       : 1000;
+    overflow-y    : auto;
+    left: 0%;
+    }
+    li{
+    position: relative;
+    display: block;
+    width: 100%;
+    height:auto;
+    }
+  }
+  $crossWidth: 24px;
+  $crossHeight: 2px;
+  .nav-cross {
+    padding: 10px;
+      &::before,
+      &::after{
+        content: "";
+        position: absolute;
+        display: block;
+        // top:50%;
+        background: $color--brack;
+        margin-top: -1px;
+        }
+          &::before{
+            width: $crossWidth;
+            height: $crossHeight;
+            right: 13px;
+          }
+          &::after{
+          width:$crossHeight;
+          height: $crossWidth;
+          right: 24px;
+          }
+      &.open{
+      &::before,
+      &::after{
+        content: "";
+        position: absolute;
+        display: block;
+        // top:50%;
+        background: $color--brack;
+        margin-top: -1px;
+        }
+          &::before{
+            width: $crossWidth;
+            height: $crossHeight;
+            right: 13px;
+            z-index: 10;
+          }
+          &::after{
+            display: block;
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            width: 50px;
+            height: auto;
+            margin-top: 0;
+            background-color: #f7f7f7;
+            z-index: 9;
+            }
+          }
+        }
+  .nav-link{
+    li {
+        a{
+        background: $color--white;
+      }
+      :hover{
+        color: $color--brack;
+        background: $color--skyblue;
       }
     }
   }
   .main{
     padding-top:50px;
   }
+  .nav-body {
+    ul {
+    position: static;    
+    }
+  }
 }
+
 
 @media screen and (max-width: 1260px) {
   .nav-body a{
